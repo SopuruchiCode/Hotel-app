@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'subscription_payments/css/plan-payment.css'%}">
+    <div class="main-div">
+        <div class="form-container">
+            <div class="plan-img-div form-con">
+                {% for plan in plans %}
+                {% if plan.id == plan_id %}
+                <img src="{{plan.photo.url}}" id="plan-{{plan.id}}" class="plan-img opacity-control" >
+                {% else %}
+                <img src="{{plan.photo.url}}" id="plan-{{plan.id}}" class="plan-img" >
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="form-div form-con">
+                <form method="post">
+                    <div class="inner-form-div">
+                        <div class="form-title">
+                            <h3> SUBSCRIPTION PLAN FORM </h3>
+                        </div>
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="field-div">
+                                {% if field.label != 'Customer' %}
+                                    {{field.label}}: {{field}}
+                                {% else %}
+                                    {{field}}
+                                {% endif %}
+                            </div>
+                            <div class="field-error-div">
+                                {{field.errors}}
+                            </div>
+                        {% endfor%}
+                        <div>
+                            {{form.non_field_errors}}
+                        </div>
+                        
+                        <div class="pay-div">
+                            <button type="submit" class="pay-btn">PAY</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="{% static 'subscription_payments/js/plan-payment.js'%}"></script>
+{% endblock %}

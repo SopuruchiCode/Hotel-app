@@ -1,0 +1,57 @@
+.main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.information-div{
+    margin-top: 90px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.238);
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+}
+h2{
+    text-align: center;
+}
+.obj-attr{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.obj-div{
+    display: inline-block;
+    border-width: 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    padding: 5px 5px;
+    border-radius: 5px;
+    width: 50%;
+    
+}
+.options-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+.perm-btn{
+    width: 60px;
+    height: 40px;
+    margin-top: 10px;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+.no{
+    background-color: rgb(169, 13, 13);
+}
+.yes{
+    background-color: rgb(22, 117, 22);
+}
+.perm-btn:hover{
+    opacity: 0.8;
+}
+form{
+    width: 100%;
+}

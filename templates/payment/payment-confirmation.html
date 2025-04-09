@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'subscription_payments/css/payment-confirmation.css'%}">
+
+    <div class="main-div">
+        <div class="information-div">
+            <h2> Subscription Checkout</h2>
+            <div class="obj-attr">
+                Customer:
+                <div class="obj-div">
+                    {{obj.customer|capfirst}}
+                </div>
+            </div>
+
+            <div class="obj-attr">
+                Subscription:
+                <div class="obj-div">
+                    {{obj.subscription}}
+                </div>            
+            </div>
+
+            <div class="obj-attr">
+                Duration:
+                {% if obj.duration == 1 %}
+                <div class="obj-div">
+                    {{obj.duration}} Day
+                </div>     
+                {% else %}
+                <div class="obj-div">
+                    {{obj.duration}} Days
+                </div>     
+                {% endif%}
+            </div>
+
+            <div class="obj-attr">
+                Starting Date:
+                <div class="obj-div">
+                    {{obj.starting_date}}
+                </div>     
+            </div>
+            {% for key, value in pmt_data.items%}
+            <div class="obj-attr">
+                {% if key == 'tax' %}
+                {{key|capfirst}} (5%):
+                {% else %}
+                {{key|capfirst}}:
+                {% endif %}
+                <div class="obj-div">
+                    NGN {{value}}
+                </div>     
+            </div>
+            {% endfor %}
+            <!-- <form method="post" id="form-set"> -->
+                <div class="options-div">
+                    {% csrf_token %}
+                    <h5> Do you want to proceed?</h6>
+                        <button class="no perm-btn" id="no"> No </button>
+                        <button class="yes perm-btn" id="yes"> Yes </button>
+                </div>
+        <!-- </form> -->
+        </div>
+        
+    </div>
+
+<script src="{% static 'subscription_payments/js/payment-confirmation.js'%}"></script>
+{% endblock %}

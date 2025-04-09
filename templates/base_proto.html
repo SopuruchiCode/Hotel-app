@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #082a47;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #082a47;
+  color: white;
+}
+.modal-profile-pic-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-profile-pic{
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 30px;
+}
+.modal-field{
+  margin: 10px;
+}
+.modal-field-value{
+  display: inline-block;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 3px;
+}
+.modal-profile-btn{
+  color: #082a47;
+  border: 2px solid #082a47;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 3px;
+}
+.update-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- Trigger/Open The Modal -->
+<!-- <button id="myModalBtn">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <div class="modal-profile-pic-div">
+        <img src="{{user.profile_picture.url}}" class="modal-profile-pic">
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-field">
+        Username: <div class="modal-field-value"> {{user.username}} </div>
+      </div>
+
+      <div class="modal-field">
+        Number of active plans: <div class="modal-field-value"> {{no_of_active_plans}} </div>
+      </div>
+    </div>
+    <div class="update-btn">
+      <a href="/accounts/profile-update/"><button class="modal-profile-btn">
+        Update Profile
+      </button></a>
+    </div>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

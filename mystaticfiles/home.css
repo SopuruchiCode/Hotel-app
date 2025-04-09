@@ -1,0 +1,74 @@
+/* .text-info{
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom-left-radius: 4px;
+    border-style: style;
+    padding: 8px;
+    width:900px;
+    margin-left: 40px;
+} */
+.plan-container{
+    display: flex;
+    justify-content: center;
+    padding: 10px 30px;
+    margin: 0px 10px;
+}
+.home-sub{
+    width: 850px;
+    height: 300px; 
+    display: flex;
+    padding: 20px 30px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.149);
+    border-radius: 10px;
+}
+.home-sub-img{
+    flex: 5;
+    padding: 5px 5px;
+}
+.home-sub-con{
+    flex: 4;
+    padding: 5px 15px;
+
+}
+.home-premium-img{
+    height: 290px;
+    width: 515px;
+    /* height: 300px;
+    width: 471px; */
+}
+.home-sub-name{
+    text-align: center;
+    margin-bottom: 23px;
+    /* background-color: #082a47; */
+}
+.price-div{
+    margin-bottom: 10px;
+}
+.button-div{
+    text-align: center;
+    margin: 20px 0px;
+}
+.rent{
+    background-color: transparent;
+    border: 2px solid  rgb(228, 138, 20);
+    color: rgb(228, 138, 20);
+    padding: 7px 28px;
+    font-size: 16px;
+    transition: 0.15s;
+}
+.rent:hover{
+    background-color:  rgb(228, 138, 20);
+    color: white;
+}
+p{
+    text-indent: 40px;
+}
+.home-intro{
+    display: flex;
+    justify-content: center;
+}
+.home-intro-p{
+    text-align: left;
+    width: 1000px;
+}
