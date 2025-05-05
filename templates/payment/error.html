@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outcome</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+            
+        }
+        .error-div{
+            background-color: rgb(169, 45, 45);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            width: 500px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-div">
+        <div class="error-div">
+            <h3> An Error occurred</h3>
+
+            <div>
+                EID: {{eid}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+body{
+    margin: 0px;
+}
+p{
+    text-indent: 10px;
+}
+.image-div{
+    background-image: url('./bed.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    height:600px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    font-style: oblique;
+}
+.top-portion{
+    display: flex;
+    justify-content: space-between;
+    background-color: #082a4791;
+}
+.tp{
+    display: flex;
+    padding: 10px 30px;
+    align-items: center;
+}
+/* .cover-login,.cover-signup,.cover-logout,.cover-admin*/ .fancy-btn{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 7px 28px;
+    margin: 0px 4px;
+    font-size: 16px;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+.fancy-btn:hover{
+    background-color: white;
+    color: #082a47;
+}
+.profile-pic-div{
+    display: inline-flex;
+    margin: 0px 4px;
+}
+.profile-pic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+}
+
+.second-portion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0px;
+}
+.cover-title{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 90px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+.motto{
+    font-size: 20px;
+    font-weight: 400;
+    color: aliceblue;
+    font-style: italic;
+}
+.mission-div{
+    background-color:#082a47;
+    display: flex;
+    align-items: center ;
+    height: 500px;
+}
+
+.mission{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+}
+.text-info{
+    display: inline-block;
+    color: white;
+    border-radius: 10px;
+    border-bottom-left-radius: 4px;
+    border-style: solid;
+    border-color: white;
+    padding: 50px;
+    font-family: sans-serif;
+    font-size: 13px;
+    color:  #28b9c1;
+    text-align: center;
+    width: 400px;
+
+}
+.slogan{
+    text-indent: 0px;
+    font-size: 30px;
+    text-align: center;
+    color:white; 
+    font-style: italic ;   
+}
+.hotel-pic{
+    width: 90%;
+    border-radius: 9px;
+}
+.hotel-image{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.cover-btn{
+    background-color: transparent; 
+    border-style: solid;
+    padding: 15px 13px;
+    color: white;
+    font-family: sans-serif;
+    border-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}

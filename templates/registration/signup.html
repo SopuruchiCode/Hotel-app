@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup.css'%}">
+<div class="signup-main">
+    <div class="signup-form-div">
+        <div class="form-title"> LOGO </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="signup-inner-form-div">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="signup-field-div">
+                    <div class="signup-field-label">{{ field.label }}:</div>
+                    <div>{{ field }} </div>
+                    <p>{{ field.errors }}</p>
+                </div>
+                {%endfor%}
+                <div class="signup-non-field-errors">{{ form.non_field_errors }}</div>
+                <div class="submit-btn-div"><button type="submit" class="submit-btn"> Signup </button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

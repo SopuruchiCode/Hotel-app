@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<div class="home-main">
+    <div class="home-intro">
+        <div class="home-intro-p">
+            <p>
+            The New Hotels as an establishment is highly praised for its exquisite customer service and the exemplary experience it provides its guests leaving them craving for more. These are the two most important aspects of any entreprise in this industry, and we continue to raise the standard of how best our guests should be treated when away fom home.
+            </p>
+            <p>
+            It is this continuous effort to improve our service and guest experience that has led us to conduct extensive research on the subject. The results of this research has guided us to create plans, subscriptions and events that focus on giving the guests maximum satisfaction at minimum price, enabling the guests to have peace of mind during their stay because they know they are recieving the best value of service available.
+            </p>
+        </div>
+    </div>
+    
+    <div>
+        {% for plan in plans%}
+            <div class="plan-container">
+                <div class="home-sub" style="background-color: {{plan.display_color}};
+    color: {{plan.alt_display_color}};">
+                    <div class="home-sub-img">
+                    <img src={{plan.photo.url}} class="home-premium-img">
+                    </div>
+                    <div class="home-sub-con">
+                        <div class="home-sub-name"> {{plan.name|upper}} PLAN </div>
+                        <div class="home-sub-info">
+                            <div class="price-div">
+                                Price-per-night: ${{plan.price_per_night}}
+                            </div>
+                            <div class="features-div">
+                                Features
+                                <ul style="color:rgb(0, 0, 0)">
+                                    <li>Plenty room space</li>
+                                    <li>5G internet connectivity</li>
+                                    <li> Breakfast-in-bed provisions</li>
+                                    <li> Two King sized beds</li>
+                                </ul>
+                            </div>
+                            <div class="button-div">
+                                <a href="/sub-plan-payments/{{plan.id}}"><button class="rent"> Rent </button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'home.js'%}"></script>
+{%endblock%}
