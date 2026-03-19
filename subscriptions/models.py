@@ -12,7 +12,7 @@ def photo_path(instance, filename):
 
 class SubscriptionPlan(models.Model):
     name = models.CharField(max_length=100)
-    price_per_night = models.DecimalField(max_digits=10000000,decimal_places=2)
+    price_per_night = models.DecimalField(max_digits=10,decimal_places=2)
     description = models.CharField(max_length=100000, null=True, blank=True)
     display_color = models.CharField(max_length=10,default='#FFFFFF')
     alt_display_color = models.CharField(max_length=10,default='#000000')
@@ -40,7 +40,7 @@ class UserSubscription(models.Model):
         return None
     customer = models.ForeignKey(CustomUser,models.CASCADE)
     subscription = models.ForeignKey(SubscriptionPlan,models.SET_NULL,null=True)
-    subscriptionId = models.CharField(max_length=100000000000000, default=None)
+    subscriptionId = models.CharField(max_length=1000, default=None)
     room = models.OneToOneField(Room, models.SET_NULL,default=None, null=True)
     duration = models.PositiveIntegerField(default=1)
     starting_date = models.DateField(default = datetime.now)

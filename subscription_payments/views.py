@@ -9,11 +9,16 @@ from django.core.serializers import serialize,deserialize
 from .models import Payment
 import requests
 from django.views.decorators.csrf import csrf_exempt
+import os
+from dotenv import load_dotenv
 
-PAYMENT_GATEWAY_URL = 'http://127.0.0.1:9000'
-API_KEY = 'Fe6KFxOCuSfW6u1LNNO5Lh9IQlev0P'
+load_dotenv()
+
+PAYMENT_GATEWAY_URL = os.environ.get("PAYMENT_GATEWAY_URL")
+API_KEY = os.environ.get("API_KEY")
+SELF_URL = os.environ.get("SELF_URL")
 chars = ascii_letters + digits
-plans = SubscriptionPlan.objects.all()
+# plans = SubscriptionPlan.objects.all()
 
 
 def id_generator(number= 8):
@@ -24,6 +29,7 @@ def get_plan_prices(request):
         return JsonResponse({'error':'Bad Request'})
 
     data = {}
+    plans = SubscriptionPlan.objects.all()
     for i in plans:
         data[str(i.id)] = i.price_per_night
     return JsonResponse(data)
@@ -33,6 +39,7 @@ def sub_plan_payment_page(request, plan_id=1):
         return redirect('/')
     
     user = request.user
+    plans = SubscriptionPlan.objects.all()
     context = {}
     context['plans'] = plans
     context['plan_id'] = plan_id
@@ -90,7 +97,7 @@ def payment_confirmation_page(request):
                     'transaction-id' : f'{str(payment_model.id)}',
                     'amount' : f'{str(payment_model.amount)}',
                     'currency' : 'NGN',
-                    'callback-url' : f'http://127.0.0.1:8000{reverse(payment_result_page)}',
+                    'callback-url' : f'{SELF_URL}{reverse(payment_result_page)}',
                     'callback-code' : f'{str(payment_model.callback_code)}'
                 }
                 

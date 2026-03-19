@@ -33,9 +33,9 @@ import requests
 
 # url = 'http://127.0.0.1:8000/sub-plan-payments/get-plan-prices/'
 # url = 'http://127.0.0.1:9000/payment_api/payment-gateway/'
-# url = 'http://127.0.0.1:9000/payment_api/price-per-day-inquiry/'
+url = 'https://bank-app-t2e1.onrender.com/payment_api/price-per-day-inquiry/'
 # url = 'http://127.0.0.1:8000/sub-plan-payments/payment-result/'
-# p = requests.post(url=url, data={'lo':'po'})
-# print(p.json())
-# print('io')
+p = requests.post(url=url, data={'lo':'po'})
+print(p.json())
+print('io')
 

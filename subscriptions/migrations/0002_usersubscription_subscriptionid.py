@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='usersubscription',
             name='subscriptionId',
-            field=models.CharField(default=None, max_length=100000000000000),
+            field=models.CharField(default=None, max_length=1000),
         ),
     ]

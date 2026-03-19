@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
-                ('price_per_night', models.DecimalField(decimal_places=2, max_digits=10000000)),
+                ('price_per_night', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('description', models.CharField(blank=True, max_length=1000, null=True)),
             ],
         ),
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             name='UserSubscription',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10000000)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('no_of_days', models.IntegerField()),
                 ('starting_date', models.DateField(auto_now_add=True)),
                 ('expiry_date', models.DateTimeField(blank=True, null=True)),
