@@ -3,6 +3,7 @@ from account.models import CustomUser
 from datetime import date,timedelta,datetime
 import random
 from django.core.exceptions import ValidationError
+from cloudinary.models import CloudinaryField
 
 def photo_path(instance, filename):
     file_name = filename.split('.')[0]
@@ -16,7 +17,8 @@ class SubscriptionPlan(models.Model):
     description = models.CharField(max_length=100000, null=True, blank=True)
     display_color = models.CharField(max_length=10,default='#FFFFFF')
     alt_display_color = models.CharField(max_length=10,default='#000000')
-    photo = models.ImageField(upload_to= photo_path, null=True, blank=True)
+    # photo = models.ImageField(upload_to= photo_path, null=True, blank=True)
+    photo = CloudinaryField('image', blank=True, null=True)
 
     def __str__(self):
         return f'{self.name}'

@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =     False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hotel-app-gkpk.onrender.com']
 
 
 # Application definition
@@ -46,7 +46,17 @@ INSTALLED_APPS = [
     'base',
     'subscriptions',
     'subscription_payments',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+import cloudinary
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

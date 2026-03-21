@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from datetime import datetime
+from cloudinary.models import CloudinaryField
 
 
 def return_path(instance, filename):
@@ -11,4 +12,5 @@ def return_path(instance, filename):
 
 
 class CustomUser(AbstractUser):
-    profile_picture = models.ImageField(upload_to=return_path,default="defaults/profile_pic/default-profile-pic.png")
+    # profile_picture = models.ImageField(upload_to=return_path,default="defaults/profile_pic/default-profile-pic.png")
+    profile_picture = CloudinaryField('image', blank=True, null=True)
